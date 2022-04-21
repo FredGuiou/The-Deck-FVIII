@@ -6,7 +6,7 @@
   <% cards.forEach( (card) => { %>
 
     <div class="card">
-      <a href="#">
+      <a href="/cardDetail/<%= card.id %>">
         <img src="/visuals/<%= card.visual_name %>" alt="<%= card.name %> illustration">
         <p class="cardName"><%= card.name %></p>
       </a>
