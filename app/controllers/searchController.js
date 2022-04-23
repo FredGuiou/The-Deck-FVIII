@@ -12,10 +12,10 @@ const searchController = {
       const cards = await dataMapper.getCardsByElements(element);
       if (cards) {
         response.render('cardList', {
-          cards, title: 'Liste des cartes recherchées'
+          cards, title: 'Liste des cartes recherchées ' + (element === 'null' ? ' sans élément' : `d'élément ${element}`)
         });
       } else {
-        response.send("Il n'y a pas de carte à afficher car vous avez sélectionné AUCUN dans le menu déroulant.");
+        response.status(500).send("Il y a un problème avec votre recherche");
       }
     } catch (error) {
       console.error(error);

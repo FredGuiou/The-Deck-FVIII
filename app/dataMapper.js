@@ -18,6 +18,7 @@ const dataMapper = {
   getCardsByElements: async (element) => {
     if (element === 'null') {
       const search = await database.query(`SELECT * FROM "card" WHERE "element" IS NULL`);
+      return search.rows;
     } else {
       const search = await database.query(`SELECT * FROM "card" WHERE "element"=$1`, values=[element]);
       return search.rows;
