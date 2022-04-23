@@ -10,7 +10,7 @@
         <img src="/visuals/<%= card.visual_name %>" alt="<%= card.name %> illustration">
         <p class="cardName"><%= card.name %></p>
       </a>
-      <a class="link--addCard" title="Ajouter au deck" href="#">[ + ]</a>
+      <a class="link--addCard" title="Ajouter au deck" href="/deck/add/<%= card.id %>">[ + ]</a>
     </div>
 
   <% }) %>
