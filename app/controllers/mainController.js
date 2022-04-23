@@ -25,11 +25,11 @@ const mainController = {
         response.render('cardDetail', { card });
       } else {
         
-        response.send("Cette figurine n'existe pas");
+        response.status(500).send("Cette carte n'existe pas");
       }
     } catch (error) {
-      
-      response.send("Il y a un problème");
+      console.error(error);
+      response.status(500).send("Il y a un problème dasn le mainController/cardDetail");
     }
   }
   
