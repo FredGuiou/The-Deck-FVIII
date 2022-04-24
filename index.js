@@ -23,10 +23,8 @@ app.set('views', 'app/views');
 app.use(express.static('public'));
 
 //Je lance les sessions avant de lancer le routeur pour qu'elles fonctionnent.
-app.use(session({secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true}));
+app.use(session({secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true, cookie:{}}));
 
-//On crée la caleur par défaut du deck à vide.
-app.use((req, res, next) => {if (!req.session.deck) {req.session.deck = []}next();});
 
 //Je lance le routeur.
 app.use(router);

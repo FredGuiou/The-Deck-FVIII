@@ -1,12 +1,17 @@
 const database = require('./database');
 
+const TABLE_NAME = "card";
+
 const dataMapper = {
 
-  getAllCards: function (callback) {
+  async getAllCards () {
     const query = {
-      text: `SELECT * FROM "card"`
+      text: `SELECT *
+      FROM ${TABLE_NAME}`
     };
-    database.query(query, callback);
+    const result = await database.query(query);
+
+    return result.rows;
   },
 
   getCard: async (id) => {
